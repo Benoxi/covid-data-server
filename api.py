@@ -5,8 +5,10 @@ import requests
 import schedule
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
-#app.config['CORS_HEADERS'] = 'Content-Type'
+
+# app.config["DEBUG"] = True
+# CORS(app, resources=r'/api/*')
+
 CORS(app, resources = {
         r'/api/*': {
             "origins": 
@@ -18,7 +20,6 @@ CORS(app, resources = {
     }
 )
 
-# CORS(app, resources=r'/api/*')
 
 global covidData, countryData
 
