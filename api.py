@@ -3,7 +3,6 @@ from flask import request, jsonify
 from flask_cors import CORS, cross_origin
 import requests
 import schedule
-import time
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
