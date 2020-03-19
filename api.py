@@ -30,11 +30,11 @@ global covidData, countryData
 # //! TODO: Format countries
 
 def queryForData():
-    covidData = requests.get("https://lab.isaaclin.cn/nCoV/api/area")
+    covidData = requests.get("https://coronavirus-19-api.herokuapp.com/countries")
 
 schedule.every(10).minutes.do(queryForData)
 
-covidData = requests.get("https://lab.isaaclin.cn/nCoV/api/area")
+covidData = requests.get("https://coronavirus-19-api.herokuapp.com/countries")
 
 @app.route('/api/v1/covid', methods=['GET'])
 def covidDataRequest():
