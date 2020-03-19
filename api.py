@@ -40,4 +40,10 @@ covidData = requests.get("https://lab.isaaclin.cn/nCoV/api/area")
 def covidDataRequest():
     return jsonify(covidData.text   );
 
-app.run()
+# A welcome message to test our server
+@app.route('/')
+def index():
+    return "<h2>Welcome to our server. If you see this the server is probably up!</h2>"
+
+if __name__ == '__main__':
+    app.run(threaded=True, port=5000)
