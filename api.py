@@ -44,10 +44,7 @@ def dumbIndexJsonObjects(data):
 
     return data
 
-def resetDatabase(newData):
-    db.purge()
-    db.insert_multiple(newData)
-
+# Unused function for now
 def quickDbUpdate(newData):
     dbData = db.all() # Get all db data
     resetDb = False
@@ -77,13 +74,17 @@ def quickDbUpdate(newData):
         else:
             db.write_back(dbData)
 
+def resetDatabase(newData):
+    db.purge()
+    db.insert_multiple(newData)
+
 def queryForData():
     covidData = requests.get("https://coronavirus-19-api.herokuapp.com/countries")
     covidDataObjects = json.loads(covidData.text)
     covidDataObjects = dumbIndexJsonObjects(covidDataObjects)
     with app.app_context():
         if len(db) > 0:
-            quickDbUpdate(covidDataObjects)
+            resetDatabase(covidDataObjects)
         else:
             db.insert_multiple(covidDataObjects)
 
