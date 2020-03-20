@@ -27,7 +27,7 @@ db = TinyDB('database/db.json')
 
 global covidData, countryData
 
-# DOINE: Add simple API call that gets, fresh data!
+# DONE: Add simple API call that gets, fresh data!
 
 #? TODO: Add database
 #! TODO: Add countries - requests.get("https://restcountries.eu/rest/v2/all")
@@ -52,13 +52,18 @@ def quickDbUpdate(newData):
     dbData = db.all() # Get all db data
     resetDb = False
 
-    if len(newData) != len(dbData):
+    if len(newData) != len(dbData) and len(newData) > 0:
         # Some new data must be added or split, clean database!
         resetDatabase(newData)
     else:
-        # Iterate through all docs and update
+        # Iterate through all docs and update them
         i = 0
         for data in dbData:
+            if i >= len(newData) or i >= len(dbData):
+                print(i)
+                print(newData)
+                print(dbData)
+
             if  data['country'] == newData[i]['country']:
                 data.update(newData[i])
             else:
