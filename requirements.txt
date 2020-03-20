@@ -4,4 +4,3 @@ gunicorn
 requests
 schedule
 tinydb
-json
