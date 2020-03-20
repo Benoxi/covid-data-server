@@ -14,7 +14,9 @@ CORS(app, resources = {
             "origins": 
             [
                 "http://localhost:8080",
-                "http://covid-data-client.herokuapp.com"
+                "https://localhost:8080",
+                "http://covid-data-client.herokuapp.com",
+                "https://covid-data-client.herokuapp.com"
             ]
         }
     }
