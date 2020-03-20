@@ -10,8 +10,8 @@ app = flask.Flask(__name__)
 cleanDb = True;
 
 CORS(app, resources = {
-        r'/api/*': {
-            "origins": 
+        r'/api/*': {    
+            "origins":
             [
                 "http://localhost:8080",
                 "https://localhost:8080",
